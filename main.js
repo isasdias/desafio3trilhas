@@ -1,0 +1,2 @@
+//aqui vamos colocar de inicio apenas funcoes que verifiquem se os campos foram preenchidos corretamente 
+//comecaremos criando as variaveis constantes ----- EX: const verificar e utilizando get.Element e outros para criar nosso codigo
