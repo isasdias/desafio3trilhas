@@ -20,81 +20,105 @@
     </header>
     <main>
         <!-- <section> -->
-        <div class="informacoes">
+        <div class="informacoes" id="form">
             <h2 class="informacoes-participante">Informações do participante</h2>
-            <form class="espacamento">
-                <div class="nome-caixa">
+            <form id="form" class="espacamento">
+                <div class="nome-caixa" id="form">
                 <label class="informacoes-participante-pessoais" for="nome_completo">Nome completo</label><br>
-                <input class="informacoes-respostas borda" id="nome_completo" type="text"  placeholder="Daiane Silva"><br></div>
-                <div class="nome-caixa">
+                <input class="informacoes-respostas borda" id="nome_completo" type="text"  placeholder="Daiane Silva"><br>
+                <span class="error" id="nome_completoError">Digite um completo válido</span></div>
+                <div class="nome-caixa" id="form">
                 <label class="informacoes-participante-pessoais" for="data_de_nascimento">Data de nascimento</label><br>
-                <input class="informacoes-respostas" id="data_de_nascimento" type="text"  placeholder="06/05/2000"><br></div>
-                <div class="nome-caixa">
+                <input class="informacoes-respostas" id="data_de_nascimento" type="text"  placeholder="06/05/2000"><br>
+                <span class="error" id="data_de_nascimentoError">Digite uma data válida </span></div>
+                <div class="nome-caixa" id="form">
                 <label class="informacoes-participante-pessoais" for="numero_cpf">CPF</label><br>
-                <input class="informacoes-respostas" id="numero_cpf" type="text"  placeholder="123.456.789-00"><br></div>
-                <div class="nome-caixa">
+                <input class="informacoes-respostas" id="numero_cpf" type="text"  placeholder="123.456.789-00"><br>
+                <span class="error" id="numero_cpfError">Digite um CPF válido</span></div>
+                <div class="nome-caixa" id="form">
                 <label class="informacoes-participante-pessoais" for="sexo">Sexo</label>
                 <select class="informacoes-respostas" name="sexo" id="sexo">
                     <option value="Feminino">Feminino</option>
                     <option value="Masculino">Masculino</option>
-                </select></div>
+                </select>
+                <span class="error" id="sexoError">Escolha uma das opções</span></div>
                 <div class="nome-caixa-alerta">
                 <label class="informacoes-participante-pessoais" for="e_mail">E-mail</label><br>
                 <input class="informacoes-respostas-email" id="e_mail" type="email"  placeholder="daianesilva"><br>
+                <span class="error" id="e_mailError">Digite um e-mail válido</span>
             <!-- </div> -->
-                <div class="alerta-botao"> 
+                <!-- <div class="alerta-botao"> 
                 <img class="alerta" src="assets/alert-circle.png" alt="alerta">
                 <small class="email-valido" >insira um e-mail válido</small><br><br></div>
-                </div>
-                <div class="nome-caixa">
+                </div> -->
+                <div class="nome-caixa" id="form">
                 <label class="informacoes-participante-pessoais" for="numero_telefone">Telefone</label><br>
-                <input class="informacoes-respostas" id="numero_telefone" type="text"  placeholder="(98) 9 8765-4321"><br></div>
-                <p class="informacoes-participante-pessoais" >Documento de identidade</p>
+                <input class="informacoes-respostas" id="numero_telefone" type="text"  placeholder="(98) 9 8765-4321">
+                <span class="error" id="numero_telefoneError">Digite um número correto</span>
+                <br></div><br><br>
+                <p class="informacoes-participante-pessoais" ><strong>Documento de identidade</strong></p>
                 <div class="upload">
                 <img class="upload-img" src="assets/cloud-upload.png" alt="upload">
-                <p class="upload-txt" >Clique aqui para selecionar o arquivo</p>   </div>
-        </div><br><br>
+                <p class="upload-txt" >Clique aqui para selecionar o arquivo</p></div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <!-- </section> -->
         <!-- <div>  -->
-        <section class="container">
+        <section id="form" class="container">
             <h3 class="informacoes-participante2">Endereço residencial</h3>
-            <form class="espacamento2">
+            <form id="form" class="espacamento2">
                 <div class="nome-caixa">
                 <label class="informacoes-participante-pessoais"for="CEP">CEP</label><br>
-                <input class="informacoes-respostas"id="CEP" type="text"  placeholder="01234-567"><br>
+                <input class="informacoes-respostas"id="CEP" type="text"  placeholder="01234-567">
+                <span class="error" id="CEPError">Digite um CEP correto</span><br>
                 </div>
                 <!-- PRECISO COLOCAR RUA E NUMERO UM AO LADO DO OUTRO -->
-                <div class="nome-caixa-dual">
-                <div class="nome-caixa-1">
+                <div class="nome-caixa-dual" id="form">
+                <div class="nome-caixa-1" id="form">
                     <label class="informacoes-participante-pessoais"for="rua">Rua</label><br>
-                    <input class="informacoes-respostas-borda2"id="rua" type="text"  placeholder="Rua 1"><br>
+                    <input class="informacoes-respostas-borda2"id="rua" type="text"  placeholder="Rua 1">
+                    <span class="error" id="ruaError">Digite a rua</span><br>
                 </div>
-                <div class="nome-caixa-2">
+                <div class="nome-caixa-2" id="form">
                     <label class="informacoes-participante-pessoais"for="numero">Número</label><br>
-                    <input class="informacoes-respostas-borda3"id="numero" type="text"  placeholder="10"><br>
+                    <input class="informacoes-respostas-borda3"id="numero" type="text"  placeholder="10">
+                    <span class="error" id="numeroError">Digite um número</span><br>
                 </div>
             </div>
                 <!-- PRECISO COLOCAR RUA E NUMERO UM AO LADO DO OUTRO -->
-                <div class="nome-caixa-dual">
+                <div class="nome-caixa-dual" id="form">
                 <div class="nome-caixa-1">
                 <label class="informacoes-participante-pessoais"for="cidade">Cidade</label><br>
-                <input class="informacoes-respostas-borda2"id="cidade" type="text"  placeholder="São Luis"><br>
+                <input class="informacoes-respostas-borda2"id="cidade" type="text"  placeholder="São Luis">
+                <span class="error" id="cidadeError">Digite sua cidade</span><br>
                 </div>
-                <div class="nome-caixa-2">
+                <div class="nome-caixa-2" id="form">
                 <label class="informacoes-participante-pessoais"for="estado">Estado</label><br>
                 <input class="informacoes-respostas-borda3"id="estado" type="text"  placeholder="MA">
+                <span class="error" id="estadoError">Digite seu estado</span>
                 </div>
             </div>
                 <p class="informacoes-participante-pessoais" >Comprovante de Residência</p>
                 <div class="upload">
                 <img class="upload-img" src="assets/cloud-upload.png" alt="upload">
-                <p class="upload-txt" >Clique aqui para selecionar o arquivo</p>   </div>
+                <p class="upload-txt" >Clique aqui para selecionar o arquivo</p> </div>
             </section>
             </form>
             <!-- </div> -->
 
-            <section class="container-2">
-            <div class="container-info">
+            <section class="container-2"id="form">
+            <div class="container-info" id="form">
                 <h4 class="informacoes-participante2">Trilhas de aprendizagem</h4>
                 <p>Selecione apenas uma trilha</p>
                         <!-- <div> -->
