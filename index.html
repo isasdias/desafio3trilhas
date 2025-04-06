@@ -8,10 +8,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    
+<!-- logo abaixo adicionei o boostrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
 </head>
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
     <header>
+        <nav>
+            <a href="login.html">Login</a>
+        </nav>
         <div class="titulo">
             <div class="titulo-voltar"> <img class="titulo-seta" src="assets/arrow-left-02.png" alt="seta de voltar"> <p class="titulo-preencher">Voltar</p></div>
         <h1 class="titulo-formulario">Formulário de inscrição</h1>
@@ -132,8 +138,31 @@
                     </div>
                     </div>
                 </div>
+                <!-- </form>
+                <div class="informacoes2">
+                <div class="mb-3">
+                    <div class="nome-caixa">
+                    <label class="informacoes-participante-pessoais" for="ID_usuario">Usuário</label><br>
+                    <input class="informacoes-respostas borda" id="ID_usuario" type="text" placeholder="crie seu login"><br></div>
+                    <div class="nome-caixa">
+                     <label class="informacoes-participante-pessoais" for="senha">Senha</label><br>
+                    <input class="informacoes-respostas" id="senha_usuario" type="text"  placeholder="crie sua senha"><br></div>
+                    <div class="nome-caixa">
                 </form>
-            <!-- </div> -->
+            </div> -->
+            </div>
+            <div class="informacoes2">
+            <div class="mb-3">
+                <label for="informacoes-participante-pessoais" class="login">Email/ Login</label>
+                <input type="email" class="form-control" id="login" placeholder="seu email será seu login">
+              </div>
+              <label for="informacoes-participante-pessoais" class="senha">Senha</label>
+            <input type="password" id="senha" class="form-control" aria-describedby="passwordHelpBlock">
+            <div id="passwordHelpBlock" class="form-text">
+              </div>
+                  <button type="submit" onclick="guardarNome()" class="btn btn-primary mb-3">Confirmar Login e Senha</button>
+            </div>
+              </form>
         </section>
             <div class="declaracao-caixa">
                 <input id="declaracao" type="checkbox" name="declaracao" value="termo_condicao"><br>

@@ -352,4 +352,24 @@
         top: 0;
         right: 0;
     }
-    
+    .informacoes2{
+        font-size: 1rem;
+        width: 33rem;
+        height: 32.5rem;
+        margin-left: 4rem;
+        width: 33rem;
+        display: flex;
+        flex-flow: column;
+        gap: 1.5rem;
+    }
+   
+    /* responsividade do trabalho */
+    @media (max-width: 768px) {
+        body {
+          font-size: 14px;
+        }
+      
+        .menu {
+          flex-direction: column;
+        }
+      }

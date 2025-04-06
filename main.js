@@ -2,12 +2,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.espacamento');
     const emailInput = document.getElementById('e_mail');
     const allInputs = document.querySelectorAll('input, select');
-    const submitButton = document.querySelector('.botao-inscricao');
+    const submitButton = document.querySelector('.botao-inscricao,btn btn-primary mb-3');
+    const login = document.getElementById("login").value.trim();
+    const senha = document.getElementById("senha").value.trim();
+    const erros = [];
 
     const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     const isOnlyNumbers = (value) => /^\d+$/.test(value);
     const isOnlyLetters = (value) => /^[A-Za-zÀ-ÿ\s]+$/.test(value);
     const isValidDate = (value) => /^\d{2}\/\d{2}\/\d{4}$/.test(value);
+
 
     const showError = (input, message) => {
         let error = input.parentNode.querySelector('.erro');
@@ -89,8 +93,30 @@ document.addEventListener('DOMContentLoaded', () => {
                             valid = false;
                         }
                         break;
-                }
-            }
+                    case 'login':
+                        if (login === "") {
+                            showError(input,"O campo de login é obrigatório.");
+                            valid = false;
+                          }
+                            break;
+    
+                    case 'senha':
+                        if (senha === "") {
+                            showError(input,"O campo de senha é obrigatório.");
+                          } else if (senha.length < 6) {
+                            showError(input,"A senha deve ter pelo menos 6 caracteres.");
+                          }
+                        
+                          if (erros.length > 0) {
+                            alert(erros.join("\n"));
+                            return false;
+                          }
+                        
+                          return true;
+                        }
+                            
+                            }
+                            
         });
 
         const trilhas = document.getElementsByName('trilhas');
@@ -112,4 +138,36 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Por favor, corrija os erros antes de enviar.');
         }
     });
+    // aqui fica o local de armazenamento do login e senha 
+    // sendo login: admin@gmail.com e senha: 12345
+    function guardarNome() {
+        const login = document.getElementById("login").value;
+        const senha = document.getElementById("senha").value;
+      
+        // Guardar no localStorage
+        localStorage.setItem("loginUsuario", login);
+        localStorage.setItem("senhaUsuario", senha);
+      
+        // Ou, se quiseres usar sessionStorage:
+        // sessionStorage.setItem("nomeUsuario", nome);
+      
+        alert("login e senha guardados!");
+      }
+      
+      // Para recupera o login e senha assim que carregar a página temos:
+      window.onload = function () {
+        const loginGuardado = localStorage.getItem("loginUsuario");
+        const senhaGuardado = localStorage.getItem("senhaUsuario");
+      
+        if (loginGuardado) {
+          document.getElementById("login").value = loginGuardado;
+        }
+      };
+      if (senhaGuardado) {
+        document.getElementById("senha").value = senhaGuardado;
+      }
 });
+if (window.matchMedia("(max-width: 768px)").matches) {
+    // Executar com resposividade para celular
+  }
+  
