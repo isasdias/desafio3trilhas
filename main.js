@@ -1,18 +1,17 @@
+// ======= SELEÇÃO DOS ELEMENTOS DO FORMULÁRIO =======
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.espacamento');
     const emailInput = document.getElementById('e_mail');
     const allInputs = document.querySelectorAll('input, select');
-    const submitButton = document.querySelector('.botao-inscricao,btn btn-primary mb-3');
-    const login = document.getElementById("login").value.trim();
-    const senha = document.getElementById("senha").value.trim();
-    const erros = [];
+    const submitButton = document.querySelector('.botao-inscricao');
 
+    // ======= FUNÇÕES DE VALIDAÇÃO BÁSICA =======
     const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     const isOnlyNumbers = (value) => /^\d+$/.test(value);
     const isOnlyLetters = (value) => /^[A-Za-zÀ-ÿ\s]+$/.test(value);
     const isValidDate = (value) => /^\d{2}\/\d{2}\/\d{4}$/.test(value);
 
-
+     // ======= EXIBIÇÃO DE ERROS NO FORMULÁRIO =======
     const showError = (input, message) => {
         let error = input.parentNode.querySelector('.erro');
         if (!error) {
@@ -24,26 +23,31 @@ document.addEventListener('DOMContentLoaded', () => {
         error.innerText = message;
     };
 
+    // ======= LIMPA OS ERROS ANTES DE VALIDAR NOVAMENTE =======
     const clearErrors = () => {
         const errors = document.querySelectorAll('.erro');
         errors.forEach(e => e.remove());
     };
 
+     // ======= FUNÇÃO PRINCIPAL QUE VALIDA O FORMULÁRIO =======
     const validateForm = () => {
         clearErrors();
         let valid = true;
 
+        // Para cada campo do formulário, faz as verificações
         allInputs.forEach(input => {
             const value = input.value.trim();
             const id = input.id;
             const label = input.previousElementSibling ? input.previousElementSibling.innerText : input.name;
 
+            // Ignora botões e campos do tipo rádio (serão verificados depois)
             if (input.type !== 'radio' && input.type !== 'submit' && input.type !== 'button') {
                 if (!value && id !== 'numero') {
                     showError(input, `${label} é obrigatório.`);
                     valid = false;
                 }
 
+                // Validações específicas para alguns campos
                 switch (id) {
                     case 'e_mail':
                         if (value && !isValidEmail(value)) {
@@ -93,32 +97,11 @@ document.addEventListener('DOMContentLoaded', () => {
                             valid = false;
                         }
                         break;
-                    case 'login':
-                        if (login === "") {
-                            showError(input,"O campo de login é obrigatório.");
-                            valid = false;
-                          }
-                            break;
-    
-                    case 'senha':
-                        if (senha === "") {
-                            showError(input,"O campo de senha é obrigatório.");
-                          } else if (senha.length < 6) {
-                            showError(input,"A senha deve ter pelo menos 6 caracteres.");
-                          }
-                        
-                          if (erros.length > 0) {
-                            alert(erros.join("\n"));
-                            return false;
-                          }
-                        
-                          return true;
-                        }
-                            
-                            }
-                            
+                }
+            }
         });
 
+          // Verifica se uma trilha de aprendizagem foi selecionada 
         const trilhas = document.getElementsByName('trilhas');
         const radioChecked = Array.from(trilhas).some(t => t.checked);
         if (!radioChecked) {
@@ -129,45 +112,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return valid;
     };
-
+// ======= AÇÃO AO CLICAR NO BOTÃO DE INSCRIÇÃO =======
     submitButton.addEventListener('click', (e) => {
         e.preventDefault();
         if (validateForm()) {
             alert('Formulário enviado com sucesso!');
+            window.location.href = 'login.html'; // 👈 redireciona após o alert
         } else {
             alert('Por favor, corrija os erros antes de enviar.');
         }
     });
-    // aqui fica o local de armazenamento do login e senha 
-    // sendo login: admin@gmail.com e senha: 12345
-    function guardarNome() {
-        const login = document.getElementById("login").value;
-        const senha = document.getElementById("senha").value;
-      
-        // Guardar no localStorage
-        localStorage.setItem("loginUsuario", login);
-        localStorage.setItem("senhaUsuario", senha);
-      
-        // Ou, se quiseres usar sessionStorage:
-        // sessionStorage.setItem("nomeUsuario", nome);
-      
-        alert("login e senha guardados!");
-      }
-      
-      // Para recupera o login e senha assim que carregar a página temos:
-      window.onload = function () {
-        const loginGuardado = localStorage.getItem("loginUsuario");
-        const senhaGuardado = localStorage.getItem("senhaUsuario");
-      
-        if (loginGuardado) {
-          document.getElementById("login").value = loginGuardado;
-        }
-      };
-      if (senhaGuardado) {
-        document.getElementById("senha").value = senhaGuardado;
-      }
 });
-if (window.matchMedia("(max-width: 768px)").matches) {
-    // Executar com resposividade para celular
-  }
-  
